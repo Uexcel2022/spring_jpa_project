@@ -30,12 +30,9 @@ public class Student {
     private Long studentId;
     private String firstName;
     private String lastName;
+    private Guardian guardian;
 
     @Column(name = "emailAddress", nullable = false)
     private String emailId;
-
-    private String guardiaName;
-    private String guardianEmail;
-    private String guardianPhone;
 
 }
