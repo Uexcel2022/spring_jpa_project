@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -31,5 +32,8 @@ public class Course {
     private String title;
     @Column(nullable = false)
     private Integer credit;
+
+    @OneToOne(mappedBy = "course")
+    private CourseMaterial courseMaterial;
 
 }

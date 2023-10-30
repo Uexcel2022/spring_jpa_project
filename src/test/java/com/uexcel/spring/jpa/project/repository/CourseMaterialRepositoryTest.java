@@ -1,5 +1,7 @@
 package com.uexcel.spring.jpa.project.repository;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,5 +29,11 @@ public class CourseMaterialRepositoryTest {
 
         courseMaterialRepository.save(courseMaterial);
 
+    }
+
+    @Test
+    public void printListOfCourseMaterialsAndCourse() {
+        List<CourseMaterial> courseMaterial = courseMaterialRepository.findAll();
+        System.out.println(courseMaterial);
     }
 }
