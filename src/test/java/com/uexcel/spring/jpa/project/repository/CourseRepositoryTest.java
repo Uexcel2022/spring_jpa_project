@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import com.uexcel.spring.jpa.project.entity.Course;
+import com.uexcel.spring.jpa.project.entity.Student;
 import com.uexcel.spring.jpa.project.entity.Teacher;
 
 @SpringBootTest
@@ -90,6 +91,38 @@ public class CourseRepositoryTest {
         int totalPages = courseRepository.findAll(sortByTitleDescending).getTotalPages();
         System.out.println(totalElements);
         System.out.println(totalPages);
+
+    }
+
+    @Test
+    public void printFindAllContaining() {
+        Pageable CourseContaining = PageRequest.of(0, 10);
+        List<Course> courses = courseRepository.findByTitleContaining("a", CourseContaining).getContent();
+        System.out.println(courses);
+    }
+
+    @Test
+    public void AddCourseTeacherAndStudent() {
+        Teacher teacher = Teacher.builder()
+                .firstName("Michael")
+                .lastName("Onova")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("David")
+                .lastName("Samson")
+                .emailId("david@gmail.com")
+                .build();
+
+        Course course = Course.builder()
+                .title("ECC")
+                .credit(8)
+                .teacher(teacher)
+                .build();
+
+        course.addStudents(student);
+
+        courseRepository.save(course);
 
     }
 
