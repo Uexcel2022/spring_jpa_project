@@ -1,8 +1,5 @@
 package com.uexcel.spring.jpa.project.entity;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,7 +34,7 @@ public class CourseMaterial {
 
     private String url;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     // fetch = FetchType.EGGER meaning fatch the value on the other table as well
     @JoinColumn(name = "course_Id", referencedColumnName = "courseId")
     private Course course;

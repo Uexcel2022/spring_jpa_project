@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import com.uexcel.spring.jpa.project.entity.Student;
 
 import jakarta.transaction.Transactional;
-import jakarta.websocket.server.PathParam;
 
 @Repository
 interface StudentRepository extends JpaRepository<Student, Long> {
